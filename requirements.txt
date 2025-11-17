@@ -1,0 +1,12 @@
+torch
+torchvision
+transformers
+sentence-transformers
+psycopg2-binary
+deepface
+tf-keras
+einops
+pillow
+python-dotenv
+tqdm
+numpy
