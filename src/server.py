@@ -121,6 +121,18 @@ async def get_image_file(image_id: int):
             raise HTTPException(status_code=404, detail="Image not found")
         return FileResponse(row['image_path'])
 
+@app.get("/image_details/{image_id}")
+async def get_image_details(image_id: int):
+    """Returns metadata for a specific image ID"""
+    async with db_pool.acquire() as conn:
+        row = await conn.fetchrow(
+            "SELECT id, image_path, caption, meta_data FROM image_metadata WHERE id = $1",
+            image_id
+        )
+        if not row:
+            raise HTTPException(status_code=404, detail="Image details not found")
+        return dict(row)
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("src.server:app", host="0.0.0.0", port=8000, reload=True)

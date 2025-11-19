@@ -1,8 +1,10 @@
 import os
 import json
+import numpy as np
 from datetime import datetime
 from PIL import Image, ExifTags
 from tqdm import tqdm
+from sklearn.cluster import DBSCAN
 from src.config import Config
 from src.database import Database
 from src.models.scene import SceneModel
@@ -57,6 +59,71 @@ class IngestionPipeline:
         
         return json.dumps(meta)
 
+    def run_clustering(self):
+        """Phase 3: Groups faces into People (identities)"""
+        print("\n--- Phase 3: Clustering Identities ---")
+        conn = self.db.connect()
+        cur = conn.cursor()
+
+        # 1. Load all face embeddings
+        cur.execute("SELECT id, face_embedding FROM face_detections")
+        rows = cur.fetchall()
+        
+        if not rows:
+            print("No faces found to cluster.")
+            return
+
+        ids = [row[0] for row in rows]
+        raw_embeddings = [row[1] for row in rows]
+        
+        print(f"Clustering {len(raw_embeddings)} faces...")
+
+        # --- CRITICAL FIX: Parse Embeddings (String -> Float List) ---
+        clean_embeddings = []
+        for emb in raw_embeddings:
+            if isinstance(emb, str):
+                try:
+                    clean_vals = json.loads(emb) 
+                except:
+                    clean_vals = [float(x) for x in emb.strip('[]').split(',')]
+                clean_embeddings.append(clean_vals)
+            elif isinstance(emb, list):
+                clean_embeddings.append(emb)
+            elif isinstance(emb, np.ndarray):
+                clean_embeddings.append(emb.tolist())
+
+        # Convert to Numpy
+        X = np.array(clean_embeddings)
+        
+        # DBSCAN: Groups similar vectors
+        clt = DBSCAN(metric="euclidean", n_jobs=-1, eps=0.5, min_samples=3)
+        clt.fit(X)
+        labels = clt.labels_
+        
+        unique_labels = set(labels)
+        print(f"Found {len(unique_labels) - (1 if -1 in unique_labels else 0)} unique people.")
+
+        # Reset people mapping to rebuild it cleanly
+        cur.execute("UPDATE face_detections SET person_id = NULL")
+        cur.execute("DELETE FROM people")  # Use DELETE instead of TRUNCATE CASCADE
+        
+        for label in tqdm(unique_labels):
+            if label == -1: continue # Unknown/Noise faces
+
+            # Create Person Entry
+            cur.execute("INSERT INTO people (name) VALUES (%s) RETURNING id", (f"Person {label}",))
+            person_id = cur.fetchone()[0]
+            
+            # Update Faces
+            indices = [i for i, x in enumerate(labels) if x == label]
+            face_ids = [ids[i] for i in indices]
+            
+            if face_ids:
+                cur.execute("UPDATE face_detections SET person_id = %s WHERE id = ANY(%s)", (person_id, face_ids))
+        
+        conn.commit()
+        print("✅ Clustering Complete.")
+
     def run(self):
         all_files = self.get_all_files()
         processed = self.get_processed_files()
@@ -64,57 +131,60 @@ class IngestionPipeline:
         
         print(f"Found {len(all_files)} images. Processing {len(to_process)} new ones.")
 
-        if not to_process:
-            return
+        if to_process:
+            # --- Phase 1: Scene Understanding ---
+            scene_model = SceneModel()
+            conn = self.db.connect()
+            cur = conn.cursor()
 
-        # --- Phase 1: Scene Understanding ---
-        scene_model = SceneModel()
-        conn = self.db.connect()
-        cur = conn.cursor()
-
-        print("Phase 1: Analyzing Scenes...")
-        for img_path in tqdm(to_process):
-            caption = scene_model.generate_caption(img_path)
-            metadata_json = self._get_metadata(img_path) # Extract metadata
-            
-            if caption:
-                vector = scene_model.get_embedding(caption)
+            print("Phase 1: Analyzing Scenes...")
+            for img_path in tqdm(to_process):
+                caption = scene_model.generate_caption(img_path)
+                metadata_json = self._get_metadata(img_path)
                 
-                # Insert with metadata
-                cur.execute("""
-                    INSERT INTO image_metadata (image_path, caption, scene_embedding, meta_data)
-                    VALUES (%s, %s, %s, %s)
-                    ON CONFLICT (image_path) DO NOTHING
-                """, (img_path, caption, vector, metadata_json))
-                conn.commit()
-        
-        scene_model.unload()
-        print("Scene analysis complete. Models unloaded.")
-
-        # --- Phase 2: Face Recognition ---
-        face_model = FaceModel()
-        
-        print("Phase 2: Scanning Faces...")
-        for img_path in tqdm(to_process):
-            cur.execute("SELECT id FROM image_metadata WHERE image_path = %s", (img_path,))
-            res = cur.fetchone()
-            if not res: continue
-            image_id = res[0]
-
-            faces = face_model.detect_faces(img_path)
-            for face in faces:
-                embedding = face.get('embedding')
-                area = face.get('facial_area')
-                conf = face.get('face_confidence', 0.0)
-
-                if embedding:
+                if caption:
+                    vector = scene_model.get_embedding(caption)
+                    
                     cur.execute("""
-                        INSERT INTO face_detections (image_id, face_embedding, location_box, confidence)
+                        INSERT INTO image_metadata (image_path, caption, scene_embedding, meta_data)
                         VALUES (%s, %s, %s, %s)
-                    """, (image_id, embedding, json.dumps(area), conf))
-            conn.commit()
+                        ON CONFLICT (image_path) DO NOTHING
+                    """, (img_path, caption, vector, metadata_json))
+                    conn.commit()
             
-        self.db.close()
+            scene_model.unload()
+            print("Scene analysis complete. Models unloaded.")
+
+            # --- Phase 2: Face Recognition ---
+            face_model = FaceModel()
+            
+            print("Phase 2: Scanning Faces...")
+            for img_path in tqdm(to_process):
+                cur.execute("SELECT id FROM image_metadata WHERE image_path = %s", (img_path,))
+                res = cur.fetchone()
+                if not res: continue
+                image_id = res[0]
+
+                faces = face_model.detect_faces(img_path)
+                for face in faces:
+                    embedding = face.get('embedding')
+                    area = face.get('facial_area')
+                    conf = face.get('face_confidence', 0.0)
+
+                    if embedding:
+                        cur.execute("""
+                            INSERT INTO face_detections (image_id, face_embedding, location_box, confidence)
+                            VALUES (%s, %s, %s, %s)
+                        """, (image_id, embedding, json.dumps(area), conf))
+                conn.commit()
+            self.db.close()
+        
+        else:
+            print("Skipping Phase 1 & 2 (No new images).")
+
+        # --- Phase 3: Clustering (ALWAYS RUNS) ---
+        self.run_clustering()
+        
         print("Ingestion Complete!")
 
 if __name__ == "__main__":
