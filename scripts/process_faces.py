@@ -100,8 +100,9 @@ def process_faces():
         print(f"Error: Embeddings shape is wrong: {X.shape}. Expected (n_samples, n_features)")
         return
 
-    # DBSCAN Clustering
-    clt = DBSCAN(metric="euclidean", n_jobs=-1, eps=0.5, min_samples=3)
+    # metric="cosine" is required for InsightFace vectors
+    # min_samples=1 ensures people with only 1 photo are not deleted
+    clt = DBSCAN(metric="cosine", n_jobs=-1, eps=0.5, min_samples=1)
     clt.fit(X)
     
     labels = clt.labels_

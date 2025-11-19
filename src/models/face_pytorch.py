@@ -13,7 +13,7 @@ class FaceModelPyTorch:
         
         # MTCNN for face detection (runs on GPU/MPS)
         self.mtcnn = MTCNN(
-            image_size=160,
+        image_size=160,
             margin=0,
             min_face_size=20,
             thresholds=[0.6, 0.7, 0.7],
