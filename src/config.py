@@ -14,7 +14,7 @@ class Config:
     
     DB_DSN = f"postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
     
-    IMAGE_SOURCE_DIR = os.getenv("IMAGE_SOURCE_DIR", "./images")
+    IMAGE_SOURCE_DIR = os.getenv("IMAGE_SOURCE_DIR", "/Users/apple/Downloads/photos_phone")
     
     # Intelligent Device Selection
     if torch.backends.mps.is_available():
