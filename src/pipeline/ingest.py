@@ -95,8 +95,11 @@ class IngestionPipeline:
         # Convert to Numpy
         X = np.array(clean_embeddings)
         
-        # DBSCAN: Groups similar vectors
-        clt = DBSCAN(metric="euclidean", n_jobs=-1, eps=0.5, min_samples=3)
+        # --- UPDATED CLUSTERING LOGIC ---
+        # metric="cosine": Correct for InsightFace (normalized vectors)
+        # eps=0.5: Good starting point (Tune with scripts/tune_clustering.py if needed)
+        # min_samples=3: Keeps gallery clean (needs 3 similar faces to make a 'Person')
+        clt = DBSCAN(metric="cosine", n_jobs=-1, eps=0.45, min_samples=3)
         clt.fit(X)
         labels = clt.labels_
         
@@ -105,7 +108,7 @@ class IngestionPipeline:
 
         # Reset people mapping to rebuild it cleanly
         cur.execute("UPDATE face_detections SET person_id = NULL")
-        cur.execute("DELETE FROM people")  # Use DELETE instead of TRUNCATE CASCADE
+        cur.execute("DELETE FROM people") 
         
         for label in tqdm(unique_labels):
             if label == -1: continue # Unknown/Noise faces

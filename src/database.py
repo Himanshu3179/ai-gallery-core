@@ -6,7 +6,7 @@ class Database:
     def __init__(self):
         self.conn = None
 
-    def connect(self):
+
         if not self.conn:
             self.conn = psycopg2.connect(Config.DB_DSN)
         return self.conn
