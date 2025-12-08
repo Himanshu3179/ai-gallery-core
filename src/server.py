@@ -152,7 +152,7 @@ async def get_person_thumbnail(person_id: int):
 
             # 4. Add Padding (50% expansion) for a "Portrait" look
             pad_x = w * 0.5
-            pad_y = h * 0.5 # Add more vertical padding usually looks better
+            pad_y = h * 0.5 
             
             # Clamp coordinates to image boundaries
             crop_x1 = max(0, x - pad_x)
@@ -168,7 +168,12 @@ async def get_person_thumbnail(person_id: int):
             face_crop.save(img_byte_arr, format='JPEG', quality=90)
             img_byte_arr.seek(0)
             
-            return StreamingResponse(img_byte_arr, media_type="image/jpeg")
+            # UPDATED: Added Cache-Control header
+            return StreamingResponse(
+                img_byte_arr, 
+                media_type="image/jpeg", 
+                headers={"Cache-Control": "public, max-age=31536000"}
+            )
             
         except Exception as e:
             print(f"Thumbnail Error: {e}")

@@ -4,15 +4,29 @@ import { Users } from 'lucide-react';
 import type { Person } from '../types';
 
 const API_BASE = "http://localhost:8000";
+const CACHE_KEY = "people_data_cache";
 
 export const People = () => {
-    const [people, setPeople] = useState<Person[]>([]);
-    const [loading, setLoading] = useState(true);
+    // Initialize from Cache (Instant Load)
+    const [people, setPeople] = useState<Person[]>(() => {
+        const cached = sessionStorage.getItem(CACHE_KEY);
+        return cached ? JSON.parse(cached) : [];
+    });
+
+    const [loading, setLoading] = useState(people.length === 0);
 
     useEffect(() => {
+        if (people.length > 0) {
+            setLoading(false);
+            return;
+        }
+
         fetch(`${API_BASE}/people`)
             .then(res => res.json())
-            .then(data => setPeople(data))
+            .then(data => {
+                setPeople(data);
+                sessionStorage.setItem(CACHE_KEY, JSON.stringify(data));
+            })
             .catch(err => console.error("Failed to load people", err))
             .finally(() => setLoading(false));
     }, []);
@@ -32,14 +46,10 @@ export const People = () => {
                     <Link
                         to={`/people/${person.id}`}
                         key={person.id}
+                        state={{ person }}
                         className="group flex flex-col gap-3"
                     >
-                        {/* Avatar Container */}
                         <div className="aspect-square w-full overflow-hidden rounded-3xl bg-[#1e1e1e] relative border border-white/5 group-hover:border-white/20 transition-colors">
-
-                            {/* UPDATED SRC: 
-                               We use the new endpoint that returns the real-time face crop 
-                            */}
                             <img
                                 src={`${API_BASE}/people/${person.id}/thumbnail`}
                                 alt={person.name}

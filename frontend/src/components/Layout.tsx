@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Outlet, useNavigate, Link, useLocation } from 'react-router-dom';
 import { Search } from 'lucide-react';
+import { ScrollToTop } from './ScrollToTop';
 
 export const Layout = () => {
     const [query, setQuery] = useState("");
@@ -23,6 +24,7 @@ export const Layout = () => {
 
     return (
         <div className="min-h-screen bg-black text-white font-sans">
+            <ScrollToTop /> 
             {/* Persistent Header */}
             <nav className="sticky top-0 z-50 bg-black py-4 px-6 border-b border-white/10">
                 <div className="flex items-center gap-4 max-w-[1600px] mx-auto">
