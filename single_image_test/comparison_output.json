@@ -1,0 +1,102 @@
+[
+  {
+    "timestamp": "2026-09-26T10:26:56.807942",
+    "image_metadata": {
+      "file_name": "Screenshot 2026-08-24 at 10.45.15 (2).png",
+      "file_path": "/Users/apple/Documents/ScreenShots/Screenshot 2026-08-24 at 10.45.15 (2).png",
+      "file_size_human": "4.71 MB",
+      "dimensions": "3024x1964",
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    "device": "mps",
+    "models": [
+      {
+        "model_id": "Salesforce/blip-image-captioning-base",
+        "name": "BLIP-Base",
+        "parameters": "220M",
+        "model_load_seconds": 5.559,
+        "inference_seconds": 0.489,
+        "total_seconds": 6.048,
+        "description": "a group of people are taking a selfie"
+      },
+      {
+        "model_id": "microsoft/git-base",
+        "name": "GIT-Base",
+        "parameters": "176M",
+        "model_load_seconds": 5.465,
+        "inference_seconds": 0.297,
+        "total_seconds": 5.762,
+        "description": "a man with glasses"
+      },
+      {
+        "model_id": "HuggingFaceTB/SmolVLM-500M-Instruct",
+        "name": "SmolVLM-500M",
+        "parameters": "500M",
+        "model_load_seconds": 5.817,
+        "inference_seconds": 3.966,
+        "total_seconds": 9.783,
+        "description": "A computer screen displaying a chat window with a profile picture of a person."
+      },
+      {
+        "model_id": "vikhyatk/moondream2",
+        "name": "Moondream2",
+        "parameters": "1.86B",
+        "model_load_seconds": 5.517,
+        "inference_seconds": 3.654,
+        "total_seconds": 9.171,
+        "description": "A Chrome browser displays a video call with two participants, one holding a white ID card, against a purple background with a chat window and various app icons."
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-26T10:24:46.487007",
+    "image_metadata": {
+      "file_name": "iShot_2026-09-24_23.13.54.png",
+      "file_path": "/Users/apple/Downloads/iShot_2026-09-24_23.13.54.png",
+      "file_size_human": "153.01 KB",
+      "dimensions": "324x328",
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    "device": "mps",
+    "models": [
+      {
+        "model_id": "Salesforce/blip-image-captioning-base",
+        "name": "BLIP-Base",
+        "parameters": "220M",
+        "model_load_seconds": 4.708,
+        "inference_seconds": 0.523,
+        "total_seconds": 5.231,
+        "description": "a man and woman are sitting on a couch"
+      },
+      {
+        "model_id": "microsoft/git-base",
+        "name": "GIT-Base",
+        "parameters": "176M",
+        "model_load_seconds": 3.995,
+        "inference_seconds": 0.273,
+        "total_seconds": 4.268,
+        "description": "person in the mirror"
+      },
+      {
+        "model_id": "HuggingFaceTB/SmolVLM-500M-Instruct",
+        "name": "SmolVLM-500M",
+        "parameters": "500M",
+        "model_load_seconds": 5.407,
+        "inference_seconds": 4.477,
+        "total_seconds": 9.884,
+        "description": "A woman with long black hair and glasses is looking up with a surprised expression."
+      },
+      {
+        "model_id": "vikhyatk/moondream2",
+        "name": "Moondream2",
+        "parameters": "1.86B",
+        "model_load_seconds": 5.544,
+        "inference_seconds": 3.264,
+        "total_seconds": 8.808,
+        "description": "A young woman with long dark hair and glasses, wearing a blue shirt, gazes upwards with a surprised expression against a white marble wall."
+      }
+    ]
+  }
+]

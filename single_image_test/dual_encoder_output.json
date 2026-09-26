@@ -1,0 +1,188 @@
+[
+  {
+    "timestamp": "2026-09-26T10:45:09.312412",
+    "model_id": "openai/clip-vit-base-patch32",
+    "device": "mps",
+    "embedding_dimensions": 512,
+    "performance": {
+      "model_load_seconds": 5.045,
+      "image_prep_seconds": 0.0423,
+      "image_encoding_ms": 3.33,
+      "image_encoding_seconds": 0.00333,
+      "text_search_latency_ms": 66.54,
+      "projected_throughput_images_per_second": 300.6,
+      "projected_10k_images_time_seconds": 33.3,
+      "projected_10k_images_time_minutes": 0.55
+    },
+    "image_metadata": {
+      "file_name": "iShot_2026-09-17_18.34.19.png",
+      "file_path": "/Users/apple/Downloads/iShot_2026-09-17_18.34.19.png",
+      "dimensions": "792x1318",
+      "size_bytes": 1223265
+    },
+    "zero_shot_search_demo": [
+      {
+        "query": "person smiling in a gym",
+        "similarity_score": 0.2651
+      },
+      {
+        "query": "a car parked outside",
+        "similarity_score": 0.2009
+      },
+      {
+        "query": "a woman taking a selfie in mirror",
+        "similarity_score": 0.199
+      },
+      {
+        "query": "food on a dining table",
+        "similarity_score": 0.1879
+      },
+      {
+        "query": "a computer screen with video call",
+        "similarity_score": 0.1569
+      },
+      {
+        "query": "a cat sleeping on a sofa",
+        "similarity_score": 0.146
+      },
+      {
+        "query": "a man singing on stage with microphone",
+        "similarity_score": 0.1376
+      }
+    ],
+    "embedding_preview": [
+      -0.00045609474182128906,
+      0.0128936767578125,
+      0.007061004638671875,
+      -0.043701171875,
+      -0.057952880859375,
+      -0.052276611328125,
+      0.015380859375,
+      0.01247406005859375
+    ]
+  },
+  {
+    "timestamp": "2026-09-26T10:42:16.686806",
+    "model_id": "openai/clip-vit-base-patch32",
+    "device": "mps",
+    "embedding_dimensions": 512,
+    "performance": {
+      "model_load_seconds": 3.743,
+      "image_prep_seconds": 0.0248,
+      "image_encoding_ms": 3.47,
+      "image_encoding_seconds": 0.00347,
+      "text_search_latency_ms": 66.72,
+      "projected_throughput_images_per_second": 288.5,
+      "projected_10k_images_time_seconds": 34.7,
+      "projected_10k_images_time_minutes": 0.58
+    },
+    "image_metadata": {
+      "file_name": "WhatsApp Image 2026-09-21 at 18.42.48.jpeg",
+      "file_path": "/Users/apple/Downloads/WhatsApp Image 2026-09-21 at 18.42.48.jpeg",
+      "dimensions": "1599x1200",
+      "size_bytes": 207469
+    },
+    "zero_shot_search_demo": [
+      {
+        "query": "person smiling in a gym",
+        "similarity_score": 0.2991
+      },
+      {
+        "query": "a woman taking a selfie in mirror",
+        "similarity_score": 0.2321
+      },
+      {
+        "query": "a computer screen with video call",
+        "similarity_score": 0.2035
+      },
+      {
+        "query": "food on a dining table",
+        "similarity_score": 0.1936
+      },
+      {
+        "query": "a car parked outside",
+        "similarity_score": 0.1836
+      },
+      {
+        "query": "a cat sleeping on a sofa",
+        "similarity_score": 0.1209
+      },
+      {
+        "query": "a man singing on stage with microphone",
+        "similarity_score": 0.1126
+      }
+    ],
+    "embedding_preview": [
+      0.044586181640625,
+      0.007785797119140625,
+      -0.006977081298828125,
+      -0.0034656524658203125,
+      -0.004291534423828125,
+      0.0158843994140625,
+      0.0233917236328125,
+      0.02008056640625
+    ]
+  },
+  {
+    "timestamp": "2026-09-26T10:41:48.189085",
+    "model_id": "openai/clip-vit-base-patch32",
+    "device": "mps",
+    "embedding_dimensions": 512,
+    "performance": {
+      "model_load_seconds": 4.301,
+      "image_prep_seconds": 0.0466,
+      "image_encoding_ms": 3.56,
+      "image_encoding_seconds": 0.00356,
+      "text_search_latency_ms": 503.6,
+      "projected_throughput_images_per_second": 281.1,
+      "projected_10k_images_time_seconds": 35.6,
+      "projected_10k_images_time_minutes": 0.59
+    },
+    "image_metadata": {
+      "file_name": "iShot_2026-05-10_22.43.38.png",
+      "file_path": "/Users/apple/Downloads/iShot_2026-05-10_22.43.38.png",
+      "dimensions": "920x930",
+      "size_bytes": 949434
+    },
+    "zero_shot_search_demo": [
+      {
+        "query": "a man singing on stage with microphone",
+        "similarity_score": 0.2583
+      },
+      {
+        "query": "a computer screen with video call",
+        "similarity_score": 0.2031
+      },
+      {
+        "query": "food on a dining table",
+        "similarity_score": 0.167
+      },
+      {
+        "query": "a car parked outside",
+        "similarity_score": 0.1637
+      },
+      {
+        "query": "person smiling in a gym",
+        "similarity_score": 0.1403
+      },
+      {
+        "query": "a woman taking a selfie in mirror",
+        "similarity_score": 0.1371
+      },
+      {
+        "query": "a cat sleeping on a sofa",
+        "similarity_score": 0.1276
+      }
+    ],
+    "embedding_preview": [
+      -0.0008516311645507812,
+      0.01605224609375,
+      -0.04888916015625,
+      -0.031890869140625,
+      0.01407623291015625,
+      -0.031097412109375,
+      0.0281524658203125,
+      -0.01493072509765625
+    ]
+  }
+]

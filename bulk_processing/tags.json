@@ -1,0 +1,101 @@
+{
+  "categories": {
+    "activities_and_sports": [
+      "gym workout",
+      "fitness training",
+      "running",
+      "swimming",
+      "cycling",
+      "yoga stretching",
+      "singing on stage",
+      "music performance",
+      "dancing",
+      "hiking in nature",
+      "cooking food",
+      "reading book"
+    ],
+    "places_and_locations": [
+      "gym",
+      "fitness center",
+      "outdoor park",
+      "beach and ocean",
+      "mountains",
+      "forest and trees",
+      "city street",
+      "modern office",
+      "home bedroom",
+      "kitchen",
+      "living room",
+      "restaurant",
+      "cafe",
+      "concert hall",
+      "airport",
+      "stadium",
+      "garden"
+    ],
+    "landmarks_and_architecture": [
+      "monument",
+      "historic landmark",
+      "eiffel tower",
+      "skyscraper building",
+      "modern architecture",
+      "bridge",
+      "temple",
+      "church"
+    ],
+    "people_and_social": [
+      "selfie photo",
+      "close up portrait",
+      "group of friends",
+      "family gathering",
+      "crowd of people",
+      "person smiling",
+      "wedding celebration",
+      "business meeting"
+    ],
+    "vehicles_and_transport": [
+      "car or automobile",
+      "sports car",
+      "motorcycle",
+      "bicycle",
+      "airplane",
+      "boat on water",
+      "train"
+    ],
+    "food_and_drinks": [
+      "pizza",
+      "burger and fries",
+      "pasta",
+      "sushi",
+      "healthy salad",
+      "dessert or cake",
+      "coffee cup",
+      "cocktail or wine",
+      "fresh fruits"
+    ],
+    "nature_and_weather": [
+      "golden sunset",
+      "sunrise morning",
+      "night sky with stars",
+      "cloudy weather",
+      "rainy weather",
+      "snow and winter",
+      "flowers blooming",
+      "domestic cat",
+      "pet dog",
+      "wild animal"
+    ],
+    "documents_and_digital": [
+      "computer screen screenshot",
+      "web browser window",
+      "software code editor",
+      "chat messaging window",
+      "paper document text",
+      "business invoice or receipt",
+      "presentation slides",
+      "id card or passport",
+      "graphic design artwork",
+      "mobile phone screen"
+    ]
+  }
+}

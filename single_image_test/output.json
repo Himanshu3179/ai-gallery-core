@@ -1,0 +1,278 @@
+[
+  {
+    "generated_at": "2026-09-26T10:11:54.245854",
+    "generation_time_seconds": 3.493,
+    "generation_time_human": "3.493s",
+    "total_time_seconds": 12.61,
+    "total_time_human": "12.610s",
+    "timing_breakdown": {
+      "model_load_gpu_seconds": 9.069,
+      "image_prep_seconds": 0.048,
+      "vision_encode_seconds": 0.962,
+      "text_generation_seconds": 2.531,
+      "pure_gpu_inference_seconds": 3.493,
+      "total_pipeline_seconds": 12.61
+    },
+    "description": "A young woman with long dark hair and glasses, wearing a blue shirt, gazes upwards with a surprised expression against a white marble wall.",
+    "prompt": "Briefly describe this image in 1 concise sentences.",
+    "max_new_tokens": 60,
+    "model_info": {
+      "model_id": "vikhyatk/moondream2",
+      "revision": "2024-08-26",
+      "device": "mps",
+      "dtype": "torch.float16"
+    },
+    "metadata": {
+      "file_name": "iShot_2026-09-24_23.13.54.png",
+      "file_path": "/Users/apple/Downloads/iShot_2026-09-24_23.13.54.png",
+      "file_size_bytes": 156686,
+      "file_size_human": "153.01 KB",
+      "created_at": "2026-09-25T01:43:39.999218",
+      "modified_at": "2026-09-24T23:13:54.680148",
+      "dimensions": {
+        "width": 324,
+        "height": 328,
+        "aspect_ratio": 0.99
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "date_taken": null,
+      "camera_make": null,
+      "camera_model": null,
+      "exif_summary": {
+        "ResolutionUnit": 2.0,
+        "ExifOffset": 78.0,
+        "XResolution": 144.0,
+        "YResolution": 144.0,
+        "ExifImageWidth": 324.0,
+        "ExifImageHeight": 328.0
+      }
+    }
+  },
+  {
+    "generated_at": "2026-09-26T10:10:52.964257",
+    "generation_time_seconds": 3.82,
+    "generation_time_human": "3.820s",
+    "total_time_seconds": 13.347,
+    "total_time_human": "13.347s",
+    "timing_breakdown": {
+      "model_load_gpu_seconds": 9.434,
+      "image_prep_seconds": 0.089,
+      "vision_encode_seconds": 1.026,
+      "text_generation_seconds": 2.794,
+      "pure_gpu_inference_seconds": 3.82,
+      "total_pipeline_seconds": 13.347
+    },
+    "description": "A man in a pink suit sings passionately on stage, holding a microphone and displaying a focused expression.",
+    "prompt": "Briefly describe this image in 1 concise sentences.",
+    "max_new_tokens": 60,
+    "model_info": {
+      "model_id": "vikhyatk/moondream2",
+      "revision": "2024-08-26",
+      "device": "mps",
+      "dtype": "torch.float16"
+    },
+    "metadata": {
+      "file_name": "iShot_2026-05-10_22.43.38.png",
+      "file_path": "/Users/apple/Downloads/iShot_2026-05-10_22.43.38.png",
+      "file_size_bytes": 949434,
+      "file_size_human": "927.18 KB",
+      "created_at": "2026-05-19T22:53:45.871881",
+      "modified_at": "2026-05-10T22:43:38.087647",
+      "dimensions": {
+        "width": 920,
+        "height": 930,
+        "aspect_ratio": 0.99
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "date_taken": null,
+      "camera_make": null,
+      "camera_model": null,
+      "exif_summary": {
+        "ResolutionUnit": 2.0,
+        "ExifOffset": 78.0,
+        "XResolution": 144.0,
+        "YResolution": 144.0,
+        "ExifImageWidth": 920.0,
+        "ExifImageHeight": 930.0
+      }
+    }
+  },
+  {
+    "generated_at": "2026-09-26T10:08:03.391872",
+    "generation_time_seconds": 3.679,
+    "generation_time_human": "3.679s",
+    "description": "A man in a pink suit sings passionately on stage, holding a microphone and displaying a focused expression.",
+    "prompt": "Briefly describe this image in 1 concise sentences.",
+    "max_new_tokens": 60,
+    "model_info": {
+      "model_id": "vikhyatk/moondream2",
+      "revision": "2024-08-26",
+      "device": "mps",
+      "dtype": "torch.float16"
+    },
+    "metadata": {
+      "file_name": "iShot_2026-05-10_22.43.38.png",
+      "file_path": "/Users/apple/Downloads/iShot_2026-05-10_22.43.38.png",
+      "file_size_bytes": 949434,
+      "file_size_human": "927.18 KB",
+      "created_at": "2026-05-19T22:53:45.871881",
+      "modified_at": "2026-05-10T22:43:38.087647",
+      "dimensions": {
+        "width": 920,
+        "height": 930,
+        "aspect_ratio": 0.99
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "date_taken": null,
+      "camera_make": null,
+      "camera_model": null,
+      "exif_summary": {
+        "ResolutionUnit": 2.0,
+        "ExifOffset": 78.0,
+        "XResolution": 144.0,
+        "YResolution": 144.0,
+        "ExifImageWidth": 920.0,
+        "ExifImageHeight": 930.0
+      }
+    }
+  },
+  {
+    "generated_at": "2026-09-26T10:06:27.930429",
+    "generation_time_seconds": 4.371,
+    "generation_time_human": "4.371s",
+    "description": "A man in a black t-shirt and glasses and a woman in a white t-shirt smile in a gym, with a punching bag and exercise equipment in the background.",
+    "prompt": "Briefly describe this image in 1-2 concise sentences.",
+    "max_new_tokens": 60,
+    "model_info": {
+      "model_id": "vikhyatk/moondream2",
+      "revision": "2024-08-26",
+      "device": "mps",
+      "dtype": "torch.float16"
+    },
+    "metadata": {
+      "file_name": "WhatsApp Image 2026-09-21 at 18.42.48.jpeg",
+      "file_path": "/Users/apple/Downloads/WhatsApp Image 2026-09-21 at 18.42.48.jpeg",
+      "file_size_bytes": 207469,
+      "file_size_human": "202.61 KB",
+      "created_at": "2026-09-21T23:43:31.866326",
+      "modified_at": "2026-09-21T20:24:55.592572",
+      "dimensions": {
+        "width": 1599,
+        "height": 1200,
+        "aspect_ratio": 1.33
+      },
+      "format": "JPEG",
+      "mode": "RGB",
+      "date_taken": null,
+      "camera_make": null,
+      "camera_model": null,
+      "exif_summary": {}
+    }
+  },
+  {
+    "generated_at": "2026-09-26T09:57:40.747953",
+    "generation_time_seconds": 8.788,
+    "generation_time_human": "8.788s",
+    "description": "In the image, a man and a woman are standing together in a gym. The man is wearing a black t-shirt with a graphic design and glasses, while the woman is wearing a white t-shirt. They are both smiling and appear to be posing for the camera. The gym is well-equipped, with a punching bag hanging from the ceiling and various exercise equipment scattered around the room. The lighting is bright, and the colors in the image are predominantly black, white, and gray, creating a neutral and clean atmosphere.",
+    "prompt": "Describe this image in detail, focusing on the setting, objects, colors, and lighting.",
+    "model_info": {
+      "model_id": "vikhyatk/moondream2",
+      "revision": "2024-08-26",
+      "device": "mps",
+      "dtype": "torch.float16"
+    },
+    "metadata": {
+      "file_name": "WhatsApp Image 2026-09-21 at 18.42.48.jpeg",
+      "file_path": "/Users/apple/Downloads/WhatsApp Image 2026-09-21 at 18.42.48.jpeg",
+      "file_size_bytes": 207469,
+      "file_size_human": "202.61 KB",
+      "created_at": "2026-09-21T23:43:31.866326",
+      "modified_at": "2026-09-21T20:24:55.592572",
+      "dimensions": {
+        "width": 1599,
+        "height": 1200,
+        "aspect_ratio": 1.33
+      },
+      "format": "JPEG",
+      "mode": "RGB",
+      "date_taken": null,
+      "camera_make": null,
+      "camera_model": null,
+      "exif_summary": {}
+    }
+  },
+  {
+    "generated_at": "2026-09-26T09:47:35.153917",
+    "generation_time_seconds": 7.909,
+    "generation_time_human": "7.909s",
+    "description": "In the image, a woman is captured in the midst of taking a selfie in a mirror. She is dressed in a brown sweater and black pants, and is holding a pink phone in her right hand. The mirror she is using is rectangular in shape, with a white curtain hanging on the right side of the frame. The background of the image is a light pink color, which complements the woman's brown sweater and black pants. The lighting in the image is natural, suggesting that the photo was taken during the day.",
+    "prompt": "Describe this image in detail, focusing on the setting, objects, colors, and lighting.",
+    "model_info": {
+      "model_id": "vikhyatk/moondream2",
+      "revision": "2024-08-26",
+      "device": "mps",
+      "dtype": "torch.float16"
+    },
+    "metadata": {
+      "file_name": "Gemini_Generated_Image_ewft4cewft4cewft.png",
+      "file_path": "/Users/apple/Downloads/Gemini_Generated_Image_ewft4cewft4cewft.png",
+      "file_size_bytes": 4545723,
+      "file_size_human": "4.34 MB",
+      "created_at": "2025-12-18T17:55:51.760101",
+      "modified_at": "2025-12-18T17:55:51.747522",
+      "dimensions": {
+        "width": 1536,
+        "height": 2752,
+        "aspect_ratio": 0.56
+      },
+      "format": "PNG",
+      "mode": "RGB",
+      "date_taken": null,
+      "camera_make": null,
+      "camera_model": null,
+      "exif_summary": {}
+    }
+  },
+  {
+    "generated_at": "2026-09-26T09:47:09.139163",
+    "generation_time_seconds": 12.449,
+    "generation_time_human": "12.449s",
+    "description": "The image presents a screenshot of a computer screen displaying a list of various video editing software and tools. The screen is predominantly black, with white text and images providing information about the software. The software includes \"Chrome Extension\", \"AI Clip Maker\", \"Seedance Video Generator\", \"Video Translator\", \"Auto Subtitle Generator\", \"Video Caption Generator\", \"AI Gaming Clip Generator\", \"Agent Skills\", \"AI Gaming Clips\", \"Video Summarizer\", and \"Speech Enhancer\". The colors in the image are predominantly black and white, with the software names and tools highlighted in white text. The lighting in the image is bright, with the software names and tools clearly visible against the black background.",
+    "prompt": "Describe this image in detail, focusing on the setting, objects, colors, and lighting.",
+    "model_info": {
+      "model_id": "vikhyatk/moondream2",
+      "revision": "2024-08-26",
+      "device": "mps",
+      "dtype": "torch.float16"
+    },
+    "metadata": {
+      "file_name": "iShot_2026-07-25_16.46.15.png",
+      "file_path": "/Users/apple/Downloads/iShot_2026-07-25_16.46.15.png",
+      "file_size_bytes": 552797,
+      "file_size_human": "539.84 KB",
+      "created_at": "2026-07-25T16:46:15.373059",
+      "modified_at": "2026-07-25T16:46:15.372399",
+      "dimensions": {
+        "width": 2672,
+        "height": 720,
+        "aspect_ratio": 3.71
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "date_taken": null,
+      "camera_make": null,
+      "camera_model": null,
+      "exif_summary": {
+        "ResolutionUnit": 2.0,
+        "ExifOffset": 78.0,
+        "XResolution": 144.0,
+        "YResolution": 144.0,
+        "ExifImageWidth": 2672.0,
+        "ExifImageHeight": 720.0
+      }
+    }
+  }
+]

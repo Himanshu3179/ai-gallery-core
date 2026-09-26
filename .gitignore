@@ -4,3 +4,12 @@ __pycache__/
 .venv/
 .DS_Store
 postgres_data/
+images/
+bulk_processing/.thumb_cache/
+
+# Generated indexing/search outputs (regenerable from clip_indexer.py etc.,
+# not source — some of these run into tens of MB and don't diff well)
+bulk_processing/clip_gallery_index*.json
+bulk_processing/bulk_results.json
+bulk_processing/moondream_results.json
+bulk_processing/unified_gallery_index.json

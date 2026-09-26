@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallery Search</title>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>📸 Gallery</h1>
+    <div class="search-wrap">
+      <input id="search-input" type="text" placeholder="Search your photos… (e.g. beach, cake, red car)" autocomplete="off" />
+      <span id="search-status" class="search-status"></span>
+    </div>
+  </header>
+
+  <main>
+    <div id="grid" class="grid"></div>
+    <div id="empty-state" class="empty-state hidden">No results found.</div>
+    <div id="sentinel" class="sentinel"></div>
+    <div id="bottom-loader" class="bottom-loader hidden">Loading more…</div>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button id="modal-close" class="modal-close">&times;</button>
+      <img id="modal-image" src="" alt="" />
+      <div class="modal-info">
+        <div id="modal-filename" class="modal-filename"></div>
+        <div id="modal-meta" class="modal-meta"></div>
+        <div id="modal-tags" class="modal-tags"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

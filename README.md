@@ -20,6 +20,7 @@
   - _Scene:_ `vikhyatk/moondream2` (Vision-Language Model, float16)
   - _Faces:_ `InsightFace Buffalo_L` (CoreML/Apple Neural Engine optimized)
   - _Embeddings:_ `all-MiniLM-L6-v2` (Sentence Transformers)
+  - _Benchmarks & Scaling:_ [Performance & Batch Optimization Guide](docs/PERFORMANCE_AND_OPTIMIZATIONS.md)
 - **Infrastructure:** Docker Compose
 
 ---
